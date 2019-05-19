@@ -105,6 +105,24 @@ extern "C"
         CAMLreturn(vColor);
     }
 
+    CAMLprim value
+    caml_SkPath_create()
+    {
+        throw "caml_SkPath_create not implemented yet";
+    }
+
+    CAMLprim value
+    caml_SkPath_moveTo()
+    {
+        throw "caml_SkPath_moveTo not implemented yet";
+    }
+
+    CAMLprim value
+    caml_SkPath_lineTo()
+    {
+        throw "caml_SkPath_lineTo not implemented yet";
+    }
+
     SkBlurStyle variantToBlurType(value vBlurType)
     {
         switch (Int_val(vBlurType))
@@ -762,6 +780,12 @@ extern "C"
     }
 
     CAMLprim value
+    caml_CanvasKit_MakeCanvasSurface(value vCanvasId)
+    {
+        throw "caml_CanvasKit_MakeCanvasSurface is only available in CanvasKit / JavaScript bindings";
+    }
+
+    CAMLprim value
     caml_SkSurface_MakeRaster(value vImageInfo, value vSurfacePropsOption)
     {
         CAMLparam2(vImageInfo, vSurfacePropsOption);
@@ -802,6 +826,12 @@ extern "C"
     }
 
     CAMLprim value
+    caml_SkCanvas_drawPath(value vCanvas, value vPath, value vPaint)
+    {
+        throw "caml_SkCanvas_drawPath not implemented yet";
+    }
+
+    CAMLprim value
     caml_SkCanvas_drawRect(value vCanvas, value vRect, value vPaint)
     {
         CAMLparam3(vCanvas, vRect, vPaint);
@@ -837,6 +867,12 @@ extern "C"
     }
 
     CAMLprim value
+    caml_SkCanvas_flush(value vCanvas)
+    {
+        throw "caml_SkCanvas_flush not implemented yet";
+    }
+
+    CAMLprim value
     caml_SkImage_encodeToData(value vImage)
     {
         CAMLparam1(vImage);
@@ -868,5 +904,17 @@ extern "C"
         auto data = wSkData::get(vData);
         fileWStream->write(data->data(), data->size());
         CAMLreturn(Val_unit);
+    }
+
+    CAMLprim value
+    caml_CanvasKit_currentContext(value vCanvasId)
+    {
+        throw "caml_CanvasKit_MakeCanvasSurface is only available in CanvasKit / JavaScript bindings";
+    }
+
+    CAMLprim value
+    caml_CanvasKit_setCurrentContext(value vCanvasId)
+    {
+        throw "caml_CanvasKit_MakeCanvasSurface is only available in CanvasKit / JavaScript bindings";
     }
 }

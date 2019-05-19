@@ -1,4 +1,5 @@
 (executable
     (name test_skia)
     (public_name test_skia)
-    (libraries skia))
+    (libraries skia)
+)

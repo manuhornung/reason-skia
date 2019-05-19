@@ -10,6 +10,13 @@ module Gr = {
   };
 };
 
+module CanvasKit = {
+  type context;
+  external currentContext: unit => context = "caml_CanvasKit_currentContext";
+  external setCurrentContext: context => unit =
+    "caml_CanvasKit_setCurrentContext";
+};
+
 module Sk = {
   type scalar = float;
 
@@ -23,7 +30,7 @@ module Sk = {
   module Color = {
     type t;
 
-    external make: (int, int, int, int) => t = "caml_SkColor_make";
+    external makeARGB: (int, int, int, int) => t = "caml_SkColor_make";
   };
 
   module Matrix = {
@@ -32,8 +39,11 @@ module Sk = {
 
   module Path = {
     type t;
-    // external create: unit => t = "caml_SkPath_create";
+    external make: unit => t = "caml_SkPath_create";
     // external copy: t => t = "caml_SkPath_copy";
+
+    external moveTo: (t, int, int) => unit = "caml_SkPath_moveTo";
+    external lineTo: (t, int, int) => unit = "caml_SkPath_lineTo";
   };
 
   type flattenableType =
@@ -200,11 +210,13 @@ module Sk = {
     // external rotate: (t, scalar, scalar, scalar) => unit =
     //   "caml_SkCanvas_rotate";
     external drawPaint: (t, Paint.t) => unit = "caml_SkCanvas_drawPaint";
+    external drawPath: (t, Path.t, Paint.t) => unit = "caml_SkCanvas_drawPath";
     external drawRect: (t, Rect.t, Paint.t) => unit = "caml_SkCanvas_drawRect";
     external drawRRect: (t, RRect.t, Paint.t) => unit =
       "caml_SkCanvas_drawRRect";
     external drawTextBlob: (t, TextBlob.t, scalar, scalar, Paint.t) => unit =
       "caml_SkCanvas_drawTextBlob";
+    external flush: t => unit = "caml_SkCanvas_flush";
     // external restore: t => unit = "caml_SkCanvas_restore";
   };
 
@@ -288,6 +300,9 @@ module Sk = {
       "caml_SkSurface_MakeRaster"; // TODO this should accept an optional SurfaceProps parameter
 
     external getCanvas: t => Canvas.t = "caml_SkSurface_getCanvas";
+
+    external makeCanvasSurface: string => t =
+      "caml_CanvasKit_MakeCanvasSurface";
 
     external makeImageSnapshot: t => Image.t =
       "caml_SkSurface_makeImageSnapshot";

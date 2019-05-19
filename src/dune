@@ -3,6 +3,7 @@
     (public_name skia)
     (cxx_names skia)
     (cxx_flags (:include cxx_flags.sexp))
+    (js_of_ocaml (javascript_files ./skia.js))
     (c_library_flags (:include c_library_flags.sexp)))
 
 (rule
