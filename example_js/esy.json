@@ -1,0 +1,27 @@
+{
+  "name": "SkiaExampleJs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "esy": {
+    "build": ["dune build -p SkiaExampleJs ./SkiaExampleJs.bc.js"]
+  },
+  "scripts": {
+    "fmt": "dune build @fmt --auto-promote",
+    "clean": "dune clean",
+    "test": "dune runtest --no-buffer"
+  },
+  "dependencies": {
+    "@opam/js_of_ocaml": "*",
+    "@opam/js_of_ocaml-compiler": "*",
+    "reason-skia": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "^3.2.2",
+    "refmterr": "^3.1.10"
+  },
+  "resolutions": {
+    "@opam/js_of_ocaml": "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
+    "@opam/js_of_ocaml-compiler": "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce",
+    "reason-skia": "link-dev:../"
+  }
+}

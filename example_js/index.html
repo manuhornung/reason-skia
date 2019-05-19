@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/canvaskit-wasm@0.6.0/bin/canvaskit.js"></script>
+    <script>
+      CanvasKitInit({
+        locateFile: file => "https://unpkg.com/canvaskit-wasm@0.6.0/bin/" + file
+      })
+        .ready()
+        .then(CK => {
+          window.CanvasKit = CK;
+          script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "./_esy/default/build/default/SkiaExampleJs.bc.js";
+          document.body.appendChild(script);
+        });
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+</html>

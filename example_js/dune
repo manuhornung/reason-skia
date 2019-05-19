@@ -1,0 +1,5 @@
+(executable
+  (name SkiaExampleJs)
+  (public_name SkiaExampleJs.bc.js)
+  (libraries skia)
+)
