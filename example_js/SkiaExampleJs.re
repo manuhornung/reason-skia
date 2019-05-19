@@ -13,6 +13,7 @@ Sk.Paint.setStrokeWidth(paint, 4.0);
 // // This effect smooths out the drawn lines a bit. (TODO: add setPathEffect to bindings)
 // paint.setPathEffect(CanvasKit.MakeSkCornerPathEffect(50));
 
+// Draw I N K
 let path = Sk.Path.make();
 Sk.Path.moveTo(path, 80, 30);
 Sk.Path.lineTo(path, 80, 80);

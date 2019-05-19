@@ -39,7 +39,7 @@ module Sk = {
 
   module Path = {
     type t;
-    external make: unit => t = "caml_SkPath_create";
+    external make: unit => t = "caml_SkPath_make";
     // external copy: t => t = "caml_SkPath_copy";
 
     external moveTo: (t, int, int) => unit = "caml_SkPath_moveTo";

@@ -106,9 +106,9 @@ extern "C"
     }
 
     CAMLprim value
-    caml_SkPath_create()
+    caml_SkPath_make()
     {
-        throw "caml_SkPath_create not implemented yet";
+        throw "caml_SkPath_make not implemented yet";
     }
 
     CAMLprim value

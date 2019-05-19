@@ -10,8 +10,8 @@ function caml_SkColor_make(alpha, red, green, blue) {
   return joo_global_object.CanvasKit.Color(red, green, blue, alpha);
 }
 
-// Provides: caml_SkPath_create
-function caml_SkPath_create() {
+// Provides: caml_SkPath_make
+function caml_SkPath_make() {
   return new joo_global_object.CanvasKit.SkPath();
 }
 
