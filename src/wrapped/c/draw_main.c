@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "include/c/gr_context.h"
 #include "include/c/sk_canvas.h"
 #include "include/c/sk_data.h"
 #include "include/c/sk_image.h"
@@ -78,3 +79,39 @@ int draw_main() {
     sk_surface_unref(surface);
     return 0;
 }
+
+
+
+int draw_gpu() {
+    //const gr_glinterface_t* interface = gr_glinterface_create_native_interface();
+    //printf("got interface!");
+    printf("making context\n");
+    gr_context_t* context = gr_context_make_gl(NULL);
+
+    printf("making rt\n");
+    gr_gl_framebufferinfo_t fbInfo;
+    fbInfo.fFBOID = 0;
+    fbInfo.fFormat = 0x8058; //GR_GL_RGBA8;
+    gr_backendrendertarget_t* rt = gr_backendrendertarget_new_gl(640, 800, 0, 8, &fbInfo);
+    printf("creating surface props\n");
+    sk_surfaceprops_t* props = sk_surfaceprops_new(0, UNKNOWN_SK_PIXELGEOMETRY);
+    printf("creating info\n");
+    sk_imageinfo_t* info = malloc(sizeof(sk_imageinfo_t));
+    *info = (sk_imageinfo_t){ .width = 640, .height = 800, .colorType = RGBA_8888_SK_COLORTYPE,
+                                            .alphaType = PREMUL_SK_ALPHATYPE, .colorspace = NULL };
+    printf("creating render target\n");
+    //sk_surface_t* surface = sk_surface_new_render_target(context, false, info, 1, TOP_LEFT_GR_SURFACE_ORIGIN, props, false);
+    sk_surface_t* surface = sk_surface_new_backend_render_target(context, rt, TOP_LEFT_GR_SURFACE_ORIGIN, RGBA_8888_SK_COLORTYPE, NULL, props);
+    printf("creating canvas\n");
+    if (!surface) {
+        printf("Surface is NULL!\n");
+    }
+    sk_canvas_t* canvas = sk_surface_get_canvas(surface);
+    printf("drawing\n");
+    draw(canvas);
+    printf("flushing\n");
+    //gr_context_flush(context);
+    sk_canvas_flush(canvas);
+    printf("flushed\n");
+    return 0;
+};

@@ -12,6 +12,12 @@ module M = (F: Ctypes.FOREIGN) => {
       "draw_main",
       C.(SkiaWrappedBindingsTypes.Base.void @-> returning(int)),
     );
+  
+  let imported_draw_gpu =
+    foreign(
+      "draw_gpu",
+      C.(SkiaWrappedBindingsTypes.Base.void @-> returning(int)),
+    );
 
   let imported_my_c_function =
     foreign(
