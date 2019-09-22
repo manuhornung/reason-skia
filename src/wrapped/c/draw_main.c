@@ -34,16 +34,16 @@ static void emit_png(const char* path, sk_surface_t* surface) {
 
 void draw(sk_canvas_t* canvas) {
     sk_paint_t* fill = sk_paint_new();
-    sk_paint_set_color(fill, sk_color_set_argb(0xFF, 0x00, 0x00, 0xFF));
+    sk_paint_set_color(fill, sk_color_set_argb(0x00, 0x00, 0x00, 0xFF));
     sk_canvas_draw_paint(canvas, fill);
 
-    sk_paint_set_color(fill, sk_color_set_argb(0xFF, 0x00, 0xFF, 0xFF));
+    /*sk_paint_set_color(fill, sk_color_set_argb(0x00, 0x00, 0x00, 0xFF));
     sk_rect_t rect;
     rect.left = 100.0f;
     rect.top = 100.0f;
     rect.right = 540.0f;
     rect.bottom = 380.0f;
-    sk_canvas_draw_rect(canvas, &rect, fill);
+    sk_canvas_draw_rect(canvas, &rect, fill);*/
 
     sk_paint_t* stroke = sk_paint_new();
     sk_paint_set_color(stroke, sk_color_set_argb(0xFF, 0xFF, 0x00, 0x00));
@@ -65,6 +65,19 @@ void draw(sk_canvas_t* canvas) {
     rect2.right = 520.0f;
     rect2.bottom = 360.0f;
     sk_canvas_draw_oval(canvas, &rect2, fill);
+    /*sk_canvas_draw_paint(canvas, fill);*/
+
+    sk_fontstyle_t *style = sk_fontstyle_new(500, 0, UPRIGHT_SK_FONT_STYLE_SLANT);
+    sk_typeface_t *typeface = sk_typeface_create_from_name_with_font_style("Consolas", style);
+    char* familyName = (char *)sk_typeface_get_family_name(typeface);
+    printf("Family name: %s\n", familyName);
+    sk_paint_t* fill2 = sk_paint_new();
+    sk_paint_set_color(fill2, sk_color_set_argb(0xFF, 0xFF, 0xFF, 0xFF));
+    sk_paint_set_typeface(fill2, typeface);
+    sk_paint_set_lcd_render_text(fill2, true);
+    printf("LCD TEXT: %d\n", sk_paint_is_lcd_render_text(fill2));
+    sk_paint_set_antialias(fill2, true);
+    sk_canvas_draw_text(canvas, "Hello, world!", strlen("Hello, world!"), 10.25, 10.25, fill2);
 
     sk_path_delete(path);
     sk_paint_delete(stroke);
@@ -92,16 +105,16 @@ int draw_gpu() {
     gr_gl_framebufferinfo_t fbInfo;
     fbInfo.fFBOID = 0;
     fbInfo.fFormat = 0x8058; //GR_GL_RGBA8;
-    gr_backendrendertarget_t* rt = gr_backendrendertarget_new_gl(640, 800, 0, 8, &fbInfo);
+    gr_backendrendertarget_t* rt = gr_backendrendertarget_new_gl(640, 400, 8, 8, &fbInfo);
     printf("creating surface props\n");
-    sk_surfaceprops_t* props = sk_surfaceprops_new(0, UNKNOWN_SK_PIXELGEOMETRY);
+    sk_surfaceprops_t* props = sk_surfaceprops_new(0, RGB_H_SK_PIXELGEOMETRY);
     printf("creating info\n");
     sk_imageinfo_t* info = malloc(sizeof(sk_imageinfo_t));
-    *info = (sk_imageinfo_t){ .width = 640, .height = 800, .colorType = RGBA_8888_SK_COLORTYPE,
-                                            .alphaType = PREMUL_SK_ALPHATYPE, .colorspace = NULL };
+    *info = (sk_imageinfo_t){ .width = 640, .height = 400, .colorType = RGBA_8888_SK_COLORTYPE,
+                                            .alphaType = UNPREMUL_SK_ALPHATYPE, .colorspace = NULL };
     printf("creating render target\n");
     //sk_surface_t* surface = sk_surface_new_render_target(context, false, info, 1, TOP_LEFT_GR_SURFACE_ORIGIN, props, false);
-    sk_surface_t* surface = sk_surface_new_backend_render_target(context, rt, TOP_LEFT_GR_SURFACE_ORIGIN, RGBA_8888_SK_COLORTYPE, NULL, props);
+    sk_surface_t* surface = sk_surface_new_backend_render_target(context, rt, BOTTOM_LEFT_GR_SURFACE_ORIGIN, RGBA_8888_SK_COLORTYPE, NULL, props);
     printf("creating canvas\n");
     if (!surface) {
         printf("Surface is NULL!\n");
