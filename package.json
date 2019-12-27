@@ -4,7 +4,7 @@
   "description": "Reason bindings for the Skia 2D graphics library",
   "scripts": {
     "format": "esy dune build @fmt --auto-promote"
-  }
+  },
   "esy": {
     "build": [
       [
