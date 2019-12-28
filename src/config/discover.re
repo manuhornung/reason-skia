@@ -46,6 +46,7 @@ let () =
 
     let flags = switch (get_os) {
     | Linux => []
+      @ ["-verbose"]
       @ cclib("-lfontconfig")
       @ cclib("-lfreetype")
       @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
@@ -54,13 +55,19 @@ let () =
     | _ => []
     };
 
+    let libs = switch (get_os) {
+    | Linux => conf.libs
+    @ ["-lfreetype", "-lfontconfig", "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH")];
+    | _ => conf.libs
+    };
+
     write_sexp("flags.sexp", flags);
     write_lines("c_flags.txt", conf.cflags);
     write_sexp("c_flags.sexp", conf.cflags);
-    write_sexp("c_library_flags.sexp", conf.libs);
-    write_lines("c_library_flags.txt", conf.libs);
+    write_sexp("c_library_flags.sexp", libs);
+    write_lines("c_library_flags.txt", libs);
     write_sexp(
       "cclib_c_library_flags.sexp",
-      conf.libs |> List.map(o => ["-cclib", o]) |> List.flatten,
+      libs |> List.map(o => ["-cclib", o]) |> List.flatten,
     );
   });
