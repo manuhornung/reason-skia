@@ -81,4 +81,4 @@ jobs:
   - template: .ci/restore-build-cache.yml
   - template: .ci/esy-build-steps.yml
   # - script: esy x TestApp
-  - template: .ci/publish-build-cache.yml
+  # - template: .ci/publish-build-cache.yml
