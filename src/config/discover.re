@@ -44,22 +44,30 @@ let () =
     let ccopt = s => ["-ccopt", s];
     let cclib = s => ["-cclib", s];
 
-    let flags = switch (get_os) {
-    | Linux => []
-      @ ["-verbose"]
-      @ cclib("-lfontconfig")
-      @ cclib("-lfreetype")
-      @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
-      @ ccopt("-I" ++ Sys.getenv("FREETYPE2_INCLUDE_PATH"))
-      @ ccopt("-I/usr/include")
-    | _ => []
-    };
+    let flags =
+      switch (get_os) {
+      | Linux =>
+        []
+        @ ["-verbose"]
+        @ cclib("-lfontconfig")
+        @ cclib("-lfreetype")
+        @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
+        @ ccopt("-I" ++ Sys.getenv("FREETYPE2_INCLUDE_PATH"))
+        @ ccopt("-I/usr/include")
+      | _ => []
+      };
 
-    let libs = switch (get_os) {
-    | Linux => conf.libs
-    @ ["-lfreetype", "-lfontconfig", "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH")];
-    | _ => conf.libs
-    };
+    let libs =
+      switch (get_os) {
+      | Linux =>
+        conf.libs
+        @ [
+          "-lfreetype",
+          "-lfontconfig",
+          "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
+        ]
+      | _ => conf.libs
+      };
 
     write_sexp("flags.sexp", flags);
     write_lines("c_flags.txt", conf.cflags);
