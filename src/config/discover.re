@@ -51,6 +51,7 @@ let () =
         @ ["-verbose"]
         @ cclib("-lfontconfig")
         @ cclib("-lfreetype")
+        @ cclib("-lz")
         @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
         @ ccopt("-I" ++ Sys.getenv("FREETYPE2_INCLUDE_PATH"))
         @ ccopt("-I/usr/include")
