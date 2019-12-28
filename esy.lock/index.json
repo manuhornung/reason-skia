@@ -1,5 +1,5 @@
 {
-  "checksum": "f9cf945099d9affeca97a6370a50d919",
+  "checksum": "05ac7b6259db5cf40a937d03378dd3c4",
   "root": "reason-skia@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#34947ac97f898c8a94b1731df45aea16f8fc7b3c@d41d8cd9": {
@@ -51,8 +51,7 @@
       "dependencies": [
         "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#34947ac97f898c8a94b1731df45aea16f8fc7b3c@d41d8cd9",
         "refmterr@3.3.0@d41d8cd9", "ocaml@4.6.1000@d41d8cd9",
-        "esy-skia@github:revery-ui/esy-skia#8a40aae@d41d8cd9",
-        "@opam/lwt@opam:5.1.0@e9f9e9f8",
+        "esy-skia@0.6.0@d41d8cd9", "@opam/lwt@opam:5.1.0@e9f9e9f8",
         "@opam/lambda-term@opam:2.0.2@119fb081",
         "@opam/dune@opam:1.11.4@a7ccb7ae",
         "@opam/ctypes-foreign@opam:0.4.0@72ef8de2",
@@ -77,13 +76,15 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "esy-skia@github:revery-ui/esy-skia#8a40aae@d41d8cd9": {
-      "id": "esy-skia@github:revery-ui/esy-skia#8a40aae@d41d8cd9",
+    "esy-skia@0.6.0@d41d8cd9": {
+      "id": "esy-skia@0.6.0@d41d8cd9",
       "name": "esy-skia",
-      "version": "github:revery-ui/esy-skia#8a40aae",
+      "version": "0.6.0",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/esy-skia#8a40aae" ]
+        "source": [
+          "archive:https://registry.npmjs.org/esy-skia/-/esy-skia-0.6.0.tgz#sha1:8afebb69ad8e60b71da3f45b63b30bdd9315a330"
+        ]
       },
       "overrides": [],
       "dependencies": [
