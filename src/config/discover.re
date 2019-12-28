@@ -45,14 +45,13 @@ let () =
     let cclib = s => ["-cclib", s];
 
     let flags = switch (get_os) {
-    | Windows => []
-    | Mac => []
     | Linux => []
       @ cclib("-lfontconfig")
       @ cclib("-lfreetype")
       @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
       @ ccopt("-I" ++ Sys.getenv("FREETYPE2_INCLUDE_PATH"))
       @ ccopt("-I/usr/include")
+    | _ => []
     };
 
     write_sexp("flags.sexp", flags);
