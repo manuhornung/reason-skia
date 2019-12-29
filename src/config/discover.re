@@ -52,6 +52,7 @@ let () =
         @ cclib("-lfontconfig")
         @ cclib("-lfreetype")
         @ cclib("-lz")
+        @ cclib("-lbz2")
         @ ccopt("-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"))
         @ ccopt("-I" ++ Sys.getenv("FREETYPE2_INCLUDE_PATH"))
         @ ccopt("-I/usr/include")
@@ -66,6 +67,7 @@ let () =
           "-lfreetype",
           "-lfontconfig",
 	  "-lz",
+	  "-lbz2",
           "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
         ]
       | _ => conf.libs
