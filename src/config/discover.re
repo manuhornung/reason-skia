@@ -66,8 +66,8 @@ let () =
         @ [
           "-lfreetype",
           "-lfontconfig",
-	  "-lz",
-	  "-lbz2",
+          "-lz",
+          "-lbz2",
           "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
         ]
       | _ => conf.libs
