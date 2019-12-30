@@ -16,7 +16,7 @@
       ]
     ],
     "install": [
-      "esy-installer skina.install"
+      "esy-installer skia.install"
     ]
   },
   "peerDependencies": {
