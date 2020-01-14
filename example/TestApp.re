@@ -87,9 +87,11 @@ let draw = canvas => {
   switch (maybeTypeface) {
   | None => failwith("Unable to load font: " ++ filePath)
   | Some(typeFace) =>
-    print_endline("Loaded!");
+    print_endline(__LOC__ ++ ": we will set.");
     Paint.setTypeface(fill3, typeFace);
+    print_endline(__LOC__ ++ ": setTypeface is OK.");
     Canvas.drawText(canvas, "Hello, world!", 30., 30., fill3);
+    print_endline(__LOC__ ++ ": We return.");
   };
 };
 
