@@ -81,6 +81,9 @@ let draw = canvas => {
   Paint.setColor(fill3, Color.makeArgb(0xFF, 0xFF, 0xFF, 0xFF));
   Paint.setTextSize(fill3, 30.);
 
+  let nonExistentTypeface = Typeface.makeFromFile("non-existent-font.ttf", 0);
+  assert(nonExistentTypeface == None);
+
   let filePath = Sys.getcwd() ++ "/example/Orbitron Medium.ttf";
   print_endline("Loading font: " ++ filePath);
   let maybeTypeface = Typeface.makeFromFile(filePath, 0);
