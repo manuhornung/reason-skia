@@ -74,6 +74,7 @@ let () =
         @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH") ++ "/c"]
         @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
         @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
+        @ ["-lstdc++"]
         @ ["-ljpeg"]
       | _ => conf.cflags
       };
@@ -92,6 +93,7 @@ let () =
           "-L" ++ Sys.getenv("JPEG_LIB_PATH"),
           "-ljpeg",
           "-lpthread",
+          "-lstdc++",
           "-L" ++ Sys.getenv("SKIA_LIB_PATH"),
           "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
         ]
