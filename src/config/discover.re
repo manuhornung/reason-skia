@@ -43,7 +43,6 @@ let () =
 
     let ccopt = s => ["-ccopt", s];
     let cclib = s => ["-cclib", s];
-
     let flags =
       switch (get_os) {
       | Linux =>
@@ -61,8 +60,7 @@ let () =
         @ ccopt("-I" ++ Sys.getenv("SKIA_INCLUDE_PATH"))
         @ cclib("-ljpeg")
         @ ccopt("-I/usr/include")
-        @ cclib("-pthread")
-        @ cclib("-lstdc++")
+        @ ccopt("-lstdc++")
       | _ => []
       };
 
@@ -77,8 +75,6 @@ let () =
         @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
         @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
         @ ["-ljpeg"]
-        @ ["-pthread"]
-        @ ["-lstdc++"]
       | _ => conf.cflags
       };
 
@@ -95,8 +91,7 @@ let () =
           "-lbz2",
           "-L" ++ Sys.getenv("JPEG_LIB_PATH"),
           "-ljpeg",
-          "-pthread",
-          "-lstdc++",
+          "-lpthread",
           "-L" ++ Sys.getenv("SKIA_LIB_PATH"),
           "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
         ]
