@@ -573,14 +573,12 @@ module M = (F: FOREIGN) => {
       foreign(
         "sk_canvas_draw_image_rect",
         t
-        @-> Image.t,
-        @-> ptr_opt(SkiaTypes.Rect.t),
-        @-> ptr(SkiaTypes.Rect.t),
+        @-> Image.t
+        @-> ptr_opt(SkiaTypes.Rect.t)
+        @-> ptr(SkiaTypes.Rect.t)
         @-> ptr_opt(SkiaTypes.Paint.t)
-        @-> returning(void);
+        @-> returning(void),
       );
-
-    
 
     let concat =
       foreign("sk_canvas_concat", t @-> Matrix.t @-> returning(void));
