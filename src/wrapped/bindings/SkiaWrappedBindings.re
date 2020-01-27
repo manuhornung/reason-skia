@@ -40,6 +40,11 @@ module M = (F: FOREIGN) => {
       foreign("sk_fontstyle_new", int @-> int @-> slant @-> returning(t));
   };
 
+  module TextEncoding = {
+    type t = SkiaTypes.TextEncoding.t;
+    let t = SkiaTypes.TextEncoding.t;
+  };
+
   module Typeface = {
     type t = ptr(structure(SkiaTypes.Typeface.t));
     let t = ptr(SkiaTypes.Typeface.t);
@@ -134,6 +139,19 @@ module M = (F: FOREIGN) => {
         "sk_paint_set_imagefilter",
         t @-> ImageFilter.t @-> returning(void),
       );
+
+    let getTextEncoding =
+      foreign(
+        "sk_paint_get_text_encoding",
+        t @-> returning(TextEncoding.t),
+      );
+
+    let setTextEncoding =
+      foreign(
+        "sk_paint_set_text_encoding",
+        t @-> TextEncoding.t @-> returning(void),
+      );
+      
   };
 
   module Point = {

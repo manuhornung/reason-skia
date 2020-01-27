@@ -14,6 +14,10 @@ module FontStyle: {
   let make: (int, int, slant) => t;
 };
 
+module TextEncoding: {
+  type t = SkiaWrapped.TextEncoding.t;
+};
+
 module Typeface: {
   type t;
 
@@ -74,6 +78,9 @@ module Paint: {
   let setLcdRenderText: (t, bool) => unit;
   let setTextSize: (t, float) => unit;
   let getFontMetrics: (t, option(FontMetrics.t), float) => float;
+
+  let setTextEncoding: (t, TextEncoding.t) => unit;
+  let getTextEncoding: (t) => TextEncoding.t;
 };
 
 module Point: {

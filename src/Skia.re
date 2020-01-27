@@ -11,6 +11,10 @@ module FontMetrics = {
   type t = SkiaWrapped.FontMetrics.t;
 };
 
+module TextEncoding = {
+  type t = SkiaWrapped.TextEncoding.t;
+}
+
 module ImageFilter = {
   type t = SkiaWrapped.ImageFilter.t;
 
@@ -70,6 +74,8 @@ module Paint = {
   let setTypeface = SkiaWrapped.Paint.setTypeface;
   let getFontMetrics = SkiaWrapped.Paint.getFontMetrics;
   let setImageFilter = SkiaWrapped.Paint.setImageFilter;
+  let setTextEncoding = SkiaWrapped.Paint.setTextEncoding;
+  let getTextEncoding = SkiaWrapped.Paint.getTextEncoding;
 };
 
 module Point = {
