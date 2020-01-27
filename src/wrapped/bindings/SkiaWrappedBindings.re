@@ -141,17 +141,13 @@ module M = (F: FOREIGN) => {
       );
 
     let getTextEncoding =
-      foreign(
-        "sk_paint_get_text_encoding",
-        t @-> returning(TextEncoding.t),
-      );
+      foreign("sk_paint_get_text_encoding", t @-> returning(TextEncoding.t));
 
     let setTextEncoding =
       foreign(
         "sk_paint_set_text_encoding",
         t @-> TextEncoding.t @-> returning(void),
       );
-      
   };
 
   module Point = {

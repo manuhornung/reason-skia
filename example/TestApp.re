@@ -136,7 +136,7 @@ let draw = canvas => {
     Paint.setTypeface(fill, typeFace);
     Paint.setTextEncoding(fill, GlyphId);
 
-    let glyphsToString = (glyphs) => {
+    let glyphsToString = glyphs => {
       let len = List.length(glyphs);
       let bytes = Bytes.create(len * 2);
 
@@ -144,14 +144,14 @@ let draw = canvas => {
         switch (glyphs) {
         | [hd, ...tail] =>
           let lowerBit = hd land 255;
-          let highBit = (hd land (255 lsl 8)) lsr 8;
+          let highBit = (hd land 255 lsl 8) lsr 8;
           Bytes.set(bytes, idx * 2 + 0, Char.chr(lowerBit));
           Bytes.set(bytes, idx * 2 + 1, Char.chr(highBit));
           loop(tail, idx + 1);
         | [] => ()
-        }
+        };
       };
-      
+
       loop(glyphs, 0);
 
       Bytes.to_string(bytes);

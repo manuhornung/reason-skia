@@ -16,23 +16,23 @@ module M = (T: TYPE) => {
       invalid_arg(Printf.sprintf("Unsupported %s enum: %Ld", name, i))
     );
 
-
   module TextEncoding = {
     type t =
-    | Utf8
-    | Utf16
-    | Utf32
-    | GlyphId;
+      | Utf8
+      | Utf16
+      | Utf32
+      | GlyphId;
 
-    let t = skiaCEnum(
-      "sk_text_encoding_t", 
-      [
-        (Utf8, "UTF8_SK_TEXT_ENCODING"),
-        (Utf16, "UTF16_SK_TEXT_ENCODING"),
-        (Utf32, "UTF32_SK_TEXT_ENCODING"),
-        (GlyphId, "GLYPH_ID_SK_TEXT_ENCODING"),
-      ]
-    );
+    let t =
+      skiaCEnum(
+        "sk_text_encoding_t",
+        [
+          (Utf8, "UTF8_SK_TEXT_ENCODING"),
+          (Utf16, "UTF16_SK_TEXT_ENCODING"),
+          (Utf32, "UTF32_SK_TEXT_ENCODING"),
+          (GlyphId, "GLYPH_ID_SK_TEXT_ENCODING"),
+        ],
+      );
   };
 
   module FontStyle = {

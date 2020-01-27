@@ -13,7 +13,7 @@ module FontMetrics = {
 
 module TextEncoding = {
   type t = SkiaWrapped.TextEncoding.t;
-}
+};
 
 module ImageFilter = {
   type t = SkiaWrapped.ImageFilter.t;
