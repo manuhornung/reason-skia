@@ -65,6 +65,12 @@ module M = (F: FOREIGN) => {
   module FontMetrics = {
     type t = ptr(structure(SkiaTypes.FontMetrics.t));
     let t = ptr(SkiaTypes.FontMetrics.t);
+
+    let make = () => allocate_n(~count=1, SkiaTypes.FontMetrics.t);
+
+    let getAscent = metrics => getf(!@metrics, SkiaTypes.FontMetrics.ascent);
+    let getTop = metrics => getf(!@metrics, SkiaTypes.FontMetrics.top);
+    let getBottom = metrics => getf(!@metrics, SkiaTypes.FontMetrics.bottom);
   };
 
   module ImageFilter = {
@@ -131,7 +137,7 @@ module M = (F: FOREIGN) => {
     let getFontMetrics =
       foreign(
         "sk_paint_get_fontmetrics",
-        t @-> ptr_opt(SkiaTypes.FontMetrics.t) @-> float @-> returning(float),
+        t @-> ptr(SkiaTypes.FontMetrics.t) @-> float @-> returning(float),
       );
 
     let setImageFilter =

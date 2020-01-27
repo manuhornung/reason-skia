@@ -95,6 +95,17 @@ let draw = canvas => {
     Paint.setTypeface(fill3, typeFace);
     print_endline(__LOC__ ++ ": setTypeface is OK.");
     Canvas.drawText(canvas, "Hello, world!", 30., 30., fill3);
+    let metrics = FontMetrics.make();
+    let _ret: float = Paint.getFontMetrics(fill3, metrics, 1.0);
+
+    print_endline(
+      "-- Top: " ++ string_of_float(FontMetrics.getTop(metrics)),
+    );
+    print_endline(
+      "-- Bottom: " ++ string_of_float(FontMetrics.getBottom(metrics)),
+    );
+    print_endline("-- Ret: " ++ string_of_float(_ret));
+
     print_endline(__LOC__ ++ ": We return.");
   };
 

@@ -9,6 +9,11 @@ module Color = {
 
 module FontMetrics = {
   type t = SkiaWrapped.FontMetrics.t;
+  let make = SkiaWrapped.FontMetrics.make;
+
+  let getAscent = SkiaWrapped.FontMetrics.getAscent;
+  let getTop = SkiaWrapped.FontMetrics.getTop;
+  let getBottom = SkiaWrapped.FontMetrics.getBottom;
 };
 
 module TextEncoding = {
