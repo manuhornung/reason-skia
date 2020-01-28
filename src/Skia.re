@@ -12,6 +12,7 @@ module FontMetrics = {
   let make = SkiaWrapped.FontMetrics.make;
 
   let getAscent = SkiaWrapped.FontMetrics.getAscent;
+  let getDescent = SkiaWrapped.FontMetrics.getDescent;
   let getTop = SkiaWrapped.FontMetrics.getTop;
   let getBottom = SkiaWrapped.FontMetrics.getBottom;
 };

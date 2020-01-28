@@ -69,6 +69,8 @@ module M = (F: FOREIGN) => {
     let make = () => allocate_n(~count=1, SkiaTypes.FontMetrics.t);
 
     let getAscent = metrics => getf(!@metrics, SkiaTypes.FontMetrics.ascent);
+    let getDescent = metrics =>
+      getf(!@metrics, SkiaTypes.FontMetrics.descent);
     let getTop = metrics => getf(!@metrics, SkiaTypes.FontMetrics.top);
     let getBottom = metrics => getf(!@metrics, SkiaTypes.FontMetrics.bottom);
   };
