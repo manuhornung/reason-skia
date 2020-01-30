@@ -629,12 +629,12 @@ module M = (F: FOREIGN) => {
     let drawRectLtwh =
       foreign(
         "reason_skia_stub_sk_canvas_draw_rect_ltwh",
-        t 
-        @-> float 
-        @-> float 
-        @-> float 
-        @-> float 
-        @-> Paint.t 
+        t
+        @-> float
+        @-> float
+        @-> float
+        @-> float
+        @-> Paint.t
         @-> returning(void),
       );
     let drawOval =
