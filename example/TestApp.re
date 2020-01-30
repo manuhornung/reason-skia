@@ -5,11 +5,7 @@ let makeSurface = (width, height) => {
   Surface.makeRaster(imageInfo, 0, None);
 };
 
-// TODO we will need additional tools for setting up an OpenGL context for this to work.
-// See /tools/gpu inside the skia codebase
-//
-// let makeGpuSurface = (width, height) => {
-//     let glInterfaceOption = Gr.Gl.Interface.makeNative();
+// TODO we will need additional tools for setting up an OpenGL context for this to work.  // See /tools/gpu inside the skia codebase // // let makeGpuSurface = (width, height) => { //     let glInterfaceOption = Gr.Gl.Interface.makeNative();
 //     if (glInterfaceOption === None) {
 //         print_endline("GL Interface Creation failed");
 //     }
@@ -154,6 +150,7 @@ let draw = canvas => {
     Paint.setColor(fill, Color.makeArgb(0xFF, 0xFF, 0xFF, 0xFF));
     Paint.setTextSize(fill, 30.);
     Paint.setTypeface(fill, typeFace);
+    Paint.setSubpixelText(fill, true);
     Paint.setTextEncoding(fill, GlyphId);
 
     let glyphsToString = glyphs => {
@@ -187,13 +184,4 @@ let surface = makeSurface(640l, 480l);
 let canvas = Surface.getCanvas(surface);
 draw(canvas);
 emitPng("skia-c-example.png", surface);
-
-// let surfaceOption = makeGpuSurface(640, 480);
-// switch (surfaceOption) {
-// | Some(surface) => {
-//     let canvas = Surface.getCanvas(surface);
-//     draw(canvas);
-//     emitPng("skia-gpu-c-example.png", surface);
-// }
-// | None => print_endline("Surface creation failed")
-// };
+print_endline("Done!");
