@@ -1,3 +1,4 @@
+#include "sk_canvas.h"
 #include "sk_types.h"
 
 sk_color_t reason_skia_stub_sk_color_set_argb(int alpha, int red, int green, int blue);
