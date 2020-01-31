@@ -36,8 +36,7 @@ let setTranslate = () => {
 };
 
 let concat = () => {
-  let out = Skia.Matrix.make();
-  let () = Skia.Matrix.concat(out, Data.scale, Data.translate);
+  let () = Skia.Matrix.concat(Data.out, Data.scale, Data.translate);
   ();
 };
 

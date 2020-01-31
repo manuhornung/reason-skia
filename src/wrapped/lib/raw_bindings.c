@@ -6,6 +6,7 @@
 
 #include "c_stubs.h"
 #include "sk_canvas.h"
+#include "sk_matrix.h"
 #include "sk_paint.h"
 #include "sk_types.h"
 

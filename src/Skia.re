@@ -131,7 +131,6 @@ module Matrix = {
   [@unboxed] float) => unit 
   = "reason_skia_matrix_set_translate_byte" "reason_skia_matrix_set_translate";
 
-
   let setScale = (mat, scaleX, scaleY, pivotX, pivotY) =>
       _setScale(CI.cptr(mat), scaleX, scaleY, pivotX, pivotY);
   
