@@ -41,8 +41,13 @@ let () =
         }
       };
 
+    let join = String.concat("|");
+    print_endline("conf.cflags: " ++ join(conf.cflags));
+    print_endline("conf.libs: " ++ join(conf.libs));
+
     let ccopt = s => ["-ccopt", s];
     let cclib = s => ["-cclib", s];
+    let framework = s => ["-framework", s];
     let flags =
       switch (get_os) {
       | Linux =>
@@ -66,6 +71,10 @@ let () =
 
     let cflags =
       switch (get_os) {
+      | Mac =>
+        []
+        @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH")]
+        @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH") ++ "/c"]
       | Linux =>
         //conf.cflags
         []
@@ -81,6 +90,18 @@ let () =
 
     let libs =
       switch (get_os) {
+      | Mac =>
+        []
+        @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
+        @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
+        @ ["-L" ++ Sys.getenv("FREETYPE2_LIB_PATH")]
+        @ framework("CoreServices")
+        @ framework("CoreGraphics")
+        @ framework("CoreText")
+        @ framework("CoreFoundation")
+        @ ["-lskia"]
+        @ ["-lstdc++"]
+        @ [Sys.getenv("JPEG_LIB_PATH") ++ "/libturbojpeg.a"]
       | Linux =>
         //conf.libs
         []
