@@ -41,10 +41,6 @@ let () =
         }
       };
 
-    let join = String.concat("|");
-    print_endline("conf.cflags: " ++ join(conf.cflags));
-    print_endline("conf.libs: " ++ join(conf.libs));
-
     let ccopt = s => ["-ccopt", s];
     let cclib = s => ["-cclib", s];
     let framework = s => ["-framework", s];
