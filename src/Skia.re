@@ -407,6 +407,9 @@ module Gr = {
   module Gl = {
     module Interface = {
       type t = SkiaWrapped.Gr.Gl.Interface.t;
+
+      let makeNative = SkiaWrapped.Gr.Gl.Interface.makeNative;
+      let makeSdl2 = SkiaWrapped.Gr.Gl.Interface.makeSdl2;
     };
 
     module FramebufferInfo = {

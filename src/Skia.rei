@@ -274,7 +274,12 @@ module Gr: {
   type surfaceOrigin = SkiaWrapped.Gr.surfaceOrigin;
 
   module Gl: {
-    module Interface: {type t;};
+    module Interface: {
+      type t;
+
+      let makeNative: unit => t;
+      let makeSdl2: unit => t;
+    };
 
     module FramebufferInfo: {
       type t;

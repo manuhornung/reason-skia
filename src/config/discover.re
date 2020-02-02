@@ -69,15 +69,19 @@ let () =
       switch (get_os) {
       | Mac =>
         []
+        @ ["-I" ++ Sys.getenv("SDL2_INCLUDE_PATH")]
         @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH")]
         @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH") ++ "/c"]
       | Linux =>
         //conf.cflags
         []
+        @ ["-lSDL2"]
         @ ["-lskia"]
+        @ ["-I" ++ Sys.getenv("SDL2_INCLUDE_PATH")]
         @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH")]
         @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH") ++ "/c"]
         @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
+        @ ["-L" ++ Sys.getenv("SDL2_LIB_PATH")]
         @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
         @ ["-lstdc++"]
         @ ["-ljpeg"]
@@ -91,10 +95,12 @@ let () =
         @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
         @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
         @ ["-L" ++ Sys.getenv("FREETYPE2_LIB_PATH")]
+        @ ["-L" ++ Sys.getenv("SDL2_LIB_PATH")]
         @ framework("CoreServices")
         @ framework("CoreGraphics")
         @ framework("CoreText")
         @ framework("CoreFoundation")
+        @ ["-lsdl2"]
         @ ["-lskia"]
         @ ["-lstdc++"]
         @ [Sys.getenv("JPEG_LIB_PATH") ++ "/libturbojpeg.a"]
