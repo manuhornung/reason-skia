@@ -108,6 +108,7 @@ let () =
         //conf.libs
         []
         @ [
+          "-lSDL2",
           "-lskia",
           "-lfreetype",
           "-lfontconfig",
@@ -117,6 +118,7 @@ let () =
           "-ljpeg",
           "-lpthread",
           "-lstdc++",
+          "-L" ++ Sys.getenv("SDL2_LIB_PATH"),
           "-L" ++ Sys.getenv("SKIA_LIB_PATH"),
           "-L" ++ Sys.getenv("FREETYPE2_LIB_PATH"),
         ]
