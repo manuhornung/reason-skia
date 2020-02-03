@@ -59,15 +59,15 @@ let createSkiaSurface =
 
 let run = () => {
   let _ = Sdl2.init();
-  /*let attachResult = Sdl2.Platform.win32AttachConsole();
+  let attachResult = Sdl2.Platform.win32AttachConsole();
 
-    // If we were unable to attach a console, try allocating a new one
-    let _code =
-      if (attachResult == 0) {
-        Sdl2.Platform.win32AllocConsole();
-      } else {
-        attachResult;
-      };*/
+  // If we were unable to attach a console, try allocating a new one
+  let _code =
+    if (attachResult == 0) {
+      Sdl2.Platform.win32AllocConsole();
+    } else {
+      attachResult;
+    };
 
   let primaryWindow = Sdl2.Window.create(100, 100, "test");
   let glContext = Sdl2.Gl.setup(primaryWindow);
@@ -93,8 +93,10 @@ let run = () => {
   let skiaSurface = createSkiaSurface(primaryWindow, skiaContext);
   let canvas = Skia.Surface.getCanvas(skiaSurface);
 
-  let render = (window, _context, _surface) => {
+  let render = (window, context, surface) => {
     //print_endline("-- Render: start");
+    ignore(context);
+    ignore(surface);
 
     Skia.Canvas.clear(canvas, Skia.Color.makeArgb(0xFF, 0xFF, 0x00, 0x00));
 
