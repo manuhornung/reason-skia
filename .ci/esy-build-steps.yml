@@ -11,6 +11,10 @@ steps:
     displayName: 'esy @example install'
   - script: esy @example build
     displayName: 'esy @example build'
+  - script: esy @example-sdl install
+    displayName: 'esy @example-sdl install'
+  - script: esy @example-sdl build
+    displayName: 'esy @example-sdl build'
   - script: esy @example run
     displayName: 'esy @example run'
   - script: esy @bench install
