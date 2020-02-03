@@ -33,7 +33,8 @@
     "refmterr": "*",
     "yarn-pkg-config": "*",
     "esy-freetype2": "^2.9.1007",
-    "esy-sdl2": "*"
+    "esy-sdl2": "*",
+    "reason-sdl2": "*"
   },
   "devDependencies": {
     "ocaml": "~4.7.0"
