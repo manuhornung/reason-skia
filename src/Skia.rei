@@ -306,6 +306,7 @@ type clipOp = SkiaWrapped.clipOp;
 module Canvas: {
   type t;
 
+  let clear: (t, Color.t) => unit;
   let drawPaint: (t, Paint.t) => unit;
   let drawRect: (t, Rect.t, Paint.t) => unit;
   let drawRectLtwh: (t, float, float, float, float, Paint.t) => unit;

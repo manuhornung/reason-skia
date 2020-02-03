@@ -629,6 +629,9 @@ module M = (F: FOREIGN) => {
     type t = ptr(structure(SkiaTypes.Canvas.t));
     let t = ptr(SkiaTypes.Canvas.t);
 
+    let clear =
+      foreign("sk_canvas_clear", t @-> Color.t @-> returning(void));
+
     let drawPaint =
       foreign("sk_canvas_draw_paint", t @-> Paint.t @-> returning(void));
     let drawRect =

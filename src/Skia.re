@@ -440,6 +440,8 @@ module Canvas = {
       Ctypes.structure(SkiaWrappedBindings.SkiaTypes.Canvas.t),
     );
 
+  let clear = SkiaWrapped.Canvas.clear;
+
   let drawPaint = SkiaWrapped.Canvas.drawPaint;
   let drawRect = SkiaWrapped.Canvas.drawRect;
   let drawRectLtwh = SkiaWrapped.Canvas.drawRectLtwh;
