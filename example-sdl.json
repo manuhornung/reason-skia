@@ -8,9 +8,6 @@
       "install": [
           "esy-installer skia.install",
           "esy-installer skia-example-sdl.install"
-      ],
-      "dependencies": {
-        "reason-sdl2": "*"
-      }
+      ]
   }
 }
