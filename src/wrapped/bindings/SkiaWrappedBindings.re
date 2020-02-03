@@ -563,12 +563,14 @@ module M = (F: FOREIGN) => {
         type t = ptr(structure(SkiaTypes.Gr.Gl.Interface.t));
         let t = ptr(SkiaTypes.Gr.Gl.Interface.t);
 
-        let makeNative = foreign("gr_glinterface_create_native_interface",
-        void
-        @-> returning(t));
+        let makeNative =
+          foreign(
+            "gr_glinterface_create_native_interface",
+            void @-> returning(t),
+          );
 
-        let makeSdl2 = foreign("reason_skia_make_sdl2_interface",
-        void @-> returning(t));
+        let makeSdl2 =
+          foreign("reason_skia_make_sdl2_interface", void @-> returning(t));
       };
 
       module FramebufferInfo = {
