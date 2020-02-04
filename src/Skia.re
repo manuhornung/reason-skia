@@ -264,9 +264,9 @@ module Rect = {
 
   module Mutable = {
     let set = (~out, left, top, right, bottom) => {
-      (); 
-    }
-  }
+      ();
+    };
+  };
 
   let makeEmpty = SkiaWrapped.Rect.makeEmpty;
   let makeLtrb = SkiaWrapped.Rect.makeLtrb;
