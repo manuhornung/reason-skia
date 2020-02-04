@@ -162,12 +162,6 @@ let draw = canvas => {
   let fill = Paint.make();
   Paint.setColor(fill, Color.makeArgb(0xFF, 0xFF, 0x00, 0xFF));
   Canvas.drawRectLtwh(canvas, 50., 75., 100., 200., fill);
-
-  let rect = Rect.makeLtrb(1.0, 2.0, 3.0, 4.0);
-  print_endline("Rect before setting: " ++ Rect.toString(rect));
-
-  Rect.Mutable.setLtrb(~out=rect, 3.0, 9.0, 27.0, 81.0);
-  print_endline("Rect after setting: " ++ Rect.toString(rect));
 };
 
 let surface = makeSurface(640l, 480l);
