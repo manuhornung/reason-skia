@@ -137,21 +137,6 @@ module Matrix = {
   let setTranslate = (matrix, translateX, translateY) =>
       _setTranslate(CI.cptr(matrix), translateX, translateY);
 
-  /*let setScale = (matrix, scaleX, scaleY, pivotX, pivotY) => {
-    setAll(
-      matrix,
-      scaleX,
-      0.,
-      pivotX -. scaleX *. pivotX,
-      0.,
-      scaleY,
-      pivotY -. scaleY *. pivotY,
-      0.,
-      0.,
-      1.,
-    );
-  };*/
-
   let makeAll =
       (
         scaleX,
