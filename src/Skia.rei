@@ -72,6 +72,10 @@ module ImageFilter: {
 module Rect: {
   type t;
 
+  module Mutable: {
+    let setLtrb: (~out: t, float, float, float, float) => unit;
+  }
+
   let makeEmpty: unit => t;
   let makeLtrb: (float, float, float, float) => t;
 

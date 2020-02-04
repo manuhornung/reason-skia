@@ -262,6 +262,12 @@ module IRect = {
 module Rect = {
   type t = SkiaWrapped.Rect.t;
 
+  module Mutable = {
+    let set = (~out, left, top, right, bottom) => {
+      (); 
+    }
+  }
+
   let makeEmpty = SkiaWrapped.Rect.makeEmpty;
   let makeLtrb = SkiaWrapped.Rect.makeLtrb;
   let getLeft = SkiaWrapped.Rect.getLeft;
