@@ -310,25 +310,6 @@ module Rect = {
   let getBottom = rect => _getBottom(CI.cptr(rect));
   let getRight = rect => _getRight(CI.cptr(rect));
 
-  module Mutable = {
-    module CI = Cstubs_internals;
-
-    [@noalloc]
-    external _set:
-      (
-        CI.fatptr(_),
-        [@unboxed] float,
-        [@unboxed] float,
-        [@unboxed] float,
-        [@unboxed] float
-      ) =>
-      unit =
-      "reason_skia_rect_set_byte" "reason_skia_rect_set";
-
-    let setLtrb = (~out, left, top, right, bottom) =>
-      _set(CI.cptr(out), left, top, right, bottom);
-  };
-
   let makeEmpty = SkiaWrapped.Rect.makeEmpty;
   let makeLtrb = SkiaWrapped.Rect.makeLtrb;
 
