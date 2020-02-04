@@ -49,6 +49,12 @@ let () = {
       @ cclib("-ljpeg")
       @ ccopt("-I/usr/include")
       @ ccopt("-lstdc++")
+    | Windows =>
+      []
+      @ cclib("-lskia")
+      @ cclib("-lSDL2")
+      @ ccopt("-L" ++ Sys.getenv("SDL2_LIB_PATH"))
+      @ ccopt("-L" ++ Sys.getenv("SKIA_LIB_PATH"))
     | _ => []
     };
 
