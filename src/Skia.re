@@ -413,6 +413,9 @@ module Gr = {
   module Gl = {
     module Interface = {
       type t = SkiaWrapped.Gr.Gl.Interface.t;
+
+      let makeNative = SkiaWrapped.Gr.Gl.Interface.makeNative;
+      let makeSdl2 = SkiaWrapped.Gr.Gl.Interface.makeSdl2;
     };
 
     module FramebufferInfo = {
@@ -442,6 +445,8 @@ module Canvas = {
     Ctypes_static.ptr(
       Ctypes.structure(SkiaWrappedBindings.SkiaTypes.Canvas.t),
     );
+
+  let clear = SkiaWrapped.Canvas.clear;
 
   let drawPaint = SkiaWrapped.Canvas.drawPaint;
   let drawRect = SkiaWrapped.Canvas.drawRect;
