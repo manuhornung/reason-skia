@@ -118,24 +118,27 @@ module Matrix = {
   module CI = Cstubs_internals;
 
   [@noalloc]
-  external _setScale: (CI.fatptr(_), 
-  [@unboxed] float, 
-  [@unboxed] float, 
-  [@unboxed] float, 
-  [@unboxed] float) => unit 
-  = "reason_skia_matrix_set_scale_byte" "reason_skia_matrix_set_scale";
-  
+  external _setScale:
+    (
+      CI.fatptr(_),
+      [@unboxed] float,
+      [@unboxed] float,
+      [@unboxed] float,
+      [@unboxed] float
+    ) =>
+    unit =
+    "reason_skia_matrix_set_scale_byte" "reason_skia_matrix_set_scale";
+
   [@noalloc]
-  external _setTranslate: (CI.fatptr(_), 
-  [@unboxed] float, 
-  [@unboxed] float) => unit 
-  = "reason_skia_matrix_set_translate_byte" "reason_skia_matrix_set_translate";
+  external _setTranslate:
+    (CI.fatptr(_), [@unboxed] float, [@unboxed] float) => unit =
+    "reason_skia_matrix_set_translate_byte" "reason_skia_matrix_set_translate";
 
   let setScale = (mat, scaleX, scaleY, pivotX, pivotY) =>
-      _setScale(CI.cptr(mat), scaleX, scaleY, pivotX, pivotY);
-  
+    _setScale(CI.cptr(mat), scaleX, scaleY, pivotX, pivotY);
+
   let setTranslate = (matrix, translateX, translateY) =>
-      _setTranslate(CI.cptr(matrix), translateX, translateY);
+    _setTranslate(CI.cptr(matrix), translateX, translateY);
 
   let makeAll =
       (

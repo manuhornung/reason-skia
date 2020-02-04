@@ -151,7 +151,7 @@ module Matrix: {
   let getTranslateY: t => float;
   let getPerspX: t => float;
   let getPerspY: t => float;
-  
+
   let set: (t, int, float) => unit;
   let setScaleX: (t, float) => unit;
   let setScaleY: (t, float) => unit;

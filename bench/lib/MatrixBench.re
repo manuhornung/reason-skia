@@ -76,10 +76,4 @@ bench(
   ~f=setTranslate,
   (),
 );
-bench(
-  ~name="Matrix: setScale",
-  ~options,
-  ~setup=() => (),
-  ~f=setScale,
-  (),
-);
+bench(~name="Matrix: setScale", ~options, ~setup=() => (), ~f=setScale, ());
