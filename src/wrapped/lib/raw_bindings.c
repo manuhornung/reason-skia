@@ -17,10 +17,10 @@
 
 CAMLprim value reason_skia_rect_set(
    value vRect,
-   float left,
-   float top,
-   float right,
-   float bottom
+   double left,
+   double top,
+   double right,
+   double bottom
 ) {
    sk_rect_t *pRect = CTYPES_ADDR_OF_FATPTR(vRect);
    pRect->left = left;

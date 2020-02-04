@@ -296,6 +296,15 @@ module Rect = {
   let getTop = SkiaWrapped.Rect.getTop;
   let getRight = SkiaWrapped.Rect.getRight;
   let getBottom = SkiaWrapped.Rect.getBottom;
+
+  let toString = (rect) => {
+    let left = getLeft(rect);
+    let right = getRight(rect);
+    let top = getTop(rect);
+    let bottom = getBottom(rect);
+
+    Printf.sprintf("Rect - left: %f top: %f right: %f bottom: %f", left, top, right, bottom);
+  }
 };
 
 module FontStyle = {

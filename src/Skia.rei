@@ -82,6 +82,8 @@ module Rect: {
   let getLeft: t => float;
   let getRight: t => float;
   let getBottom: t => float;
+
+  let toString: t => string;
 };
 
 module Paint: {
