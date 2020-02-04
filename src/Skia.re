@@ -273,7 +273,7 @@ module Rect = {
 
   module Mutable = {
     module CI = Cstubs_internals;
-    
+
     [@noalloc]
     external _set:
       (
@@ -297,14 +297,20 @@ module Rect = {
   let getRight = SkiaWrapped.Rect.getRight;
   let getBottom = SkiaWrapped.Rect.getBottom;
 
-  let toString = (rect) => {
+  let toString = rect => {
     let left = getLeft(rect);
     let right = getRight(rect);
     let top = getTop(rect);
     let bottom = getBottom(rect);
 
-    Printf.sprintf("Rect - left: %f top: %f right: %f bottom: %f", left, top, right, bottom);
-  }
+    Printf.sprintf(
+      "Rect - left: %f top: %f right: %f bottom: %f",
+      left,
+      top,
+      right,
+      bottom,
+    );
+  };
 };
 
 module FontStyle = {

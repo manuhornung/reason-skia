@@ -9,7 +9,8 @@ module Data = {
 };
 
 let setLtrb = () => {
-  let () = Skia.Rect.Mutable.setLtrb(~out=Data.initialRect, 1.0, 2.0, 3.0, 4.0);
+  let () =
+    Skia.Rect.Mutable.setLtrb(~out=Data.initialRect, 1.0, 2.0, 3.0, 4.0);
   ();
 };
 

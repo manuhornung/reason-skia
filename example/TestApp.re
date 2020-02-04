@@ -164,10 +164,10 @@ let draw = canvas => {
   Canvas.drawRectLtwh(canvas, 50., 75., 100., 200., fill);
 
   let rect = Rect.makeLtrb(1.0, 2.0, 3.0, 4.0);
-  print_endline ("Rect before setting: " ++ Rect.toString(rect));
+  print_endline("Rect before setting: " ++ Rect.toString(rect));
 
   Rect.Mutable.setLtrb(~out=rect, 3.0, 9.0, 27.0, 81.0);
-  print_endline ("Rect after setting: " ++ Rect.toString(rect));
+  print_endline("Rect after setting: " ++ Rect.toString(rect));
 };
 
 let surface = makeSurface(640l, 480l);
