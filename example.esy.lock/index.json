@@ -1,5 +1,5 @@
 {
-  "checksum": "7681a3b089c7fd318822a420e990a3f1",
+  "checksum": "e54c3b8e11a4dd0d8922802b51e22921",
   "root": "reason-skia@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -781,7 +781,7 @@
         "@opam/conf-pkg-config@opam:1.1@67c69c0c",
         "@opam/base-bytes@opam:base@19d0c2ff",
         "@esy-ocaml/substs@0.0.1@d41d8cd9",
-        "@esy-ocaml/libffi@github:glennsl/libffi#0d21ddb@d41d8cd9"
+        "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/integers@opam:0.3.0@d6eefd3a",
@@ -1085,13 +1085,13 @@
       ],
       "devDependencies": []
     },
-    "@esy-ocaml/libffi@github:glennsl/libffi#0d21ddb@d41d8cd9": {
-      "id": "@esy-ocaml/libffi@github:glennsl/libffi#0d21ddb@d41d8cd9",
+    "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9": {
+      "id": "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9",
       "name": "@esy-ocaml/libffi",
-      "version": "github:glennsl/libffi#0d21ddb",
+      "version": "github:esy-ocaml/libffi#c61127d",
       "source": {
         "type": "install",
-        "source": [ "github:glennsl/libffi#0d21ddb" ]
+        "source": [ "github:esy-ocaml/libffi#c61127d" ]
       },
       "overrides": [],
       "dependencies": [],
