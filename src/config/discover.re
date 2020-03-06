@@ -25,9 +25,6 @@ let get_os =
     }
   };
 
-print_endline ("SKIA_LIB_PATH: " ++ Sys.getenv("SKIA_LIB_PATH"));
-print_endline ("FFI_LIB_PATH: " ++ Sys.getenv("FFI_LIB_PATH"));
-
 let () = {
   let ccopt = s => ["-ccopt", s];
   let cclib = s => ["-cclib", s];
@@ -60,9 +57,6 @@ let () = {
       @ ccopt("-L" ++ Sys.getenv("SDL2_LIB_PATH"))
       @ ccopt("-L" ++ Sys.getenv("SKIA_LIB_PATH"))
 
-    | Mac => 
-      []
-      //@ ccopt(Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a")
     | _ => []
     };
 
@@ -70,7 +64,6 @@ let () = {
     switch (get_os) {
     | Mac =>
       []
-      //@ [Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a"]
       @ ["-I" ++ Sys.getenv("SDL2_INCLUDE_PATH")]
       @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH")]
       @ ["-I" ++ Sys.getenv("SKIA_INCLUDE_PATH") ++ "/c"]
