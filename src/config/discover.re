@@ -95,8 +95,6 @@ let () = {
     switch (get_os) {
     | Mac =>
       []
-      //@ [Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a"]
-      @ [Sys.getenv("JPEG_LIB_PATH") ++ "/libturbojpeg.a"]
       @ ["-L" ++ Sys.getenv("JPEG_LIB_PATH")]
       @ ["-L" ++ Sys.getenv("SKIA_LIB_PATH")]
       @ ["-L" ++ Sys.getenv("FREETYPE2_LIB_PATH")]
@@ -118,6 +116,8 @@ let () = {
       @ ["-lSDL2"]
       @ ["-lskia"]
       @ ["-lstdc++"]
+      @ [Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a"]
+      @ [Sys.getenv("JPEG_LIB_PATH") ++ "/libturbojpeg.a"]
 
     | Linux =>
       []
