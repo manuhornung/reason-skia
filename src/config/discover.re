@@ -116,8 +116,8 @@ let () = {
       @ ["-lSDL2"]
       @ ["-lskia"]
       @ ["-lstdc++"]
-      @ [Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a"]
       @ [Sys.getenv("JPEG_LIB_PATH") ++ "/libturbojpeg.a"]
+      @ [Sys.getenv("FFI_LIB_PATH") ++ "/libffi.a"]
 
     | Linux =>
       []
