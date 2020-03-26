@@ -117,8 +117,6 @@ module M = (F: FOREIGN) => {
       foreign("sk_paint_set_style", t @-> style @-> returning(void));
     let setStrokeWidth =
       foreign("sk_paint_set_stroke_width", t @-> float @-> returning(void));
-    /* let setAlphaf =
-       foreign("sk_paint_set_alphaf", t @-> float @-> returning(void)); */
 
     let setTypeface =
       foreign("sk_paint_set_typeface", t @-> Typeface.t @-> returning(void));
