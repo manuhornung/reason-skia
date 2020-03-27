@@ -5,12 +5,14 @@ steps:
     displayName: 'npm install -g esy@0.6.2'
   - script: npm install -g clang-format
     displayName: 'npm install -g clang-format'
-  - script: esy install
-    displayName: 'esy install'
   - script: clang-format -i src/wrapped/lib/*.c
     displayName: 'clang-format -i src/wrapped/lib/*.c'
   - script: clang-format -i src/wrapped/c/*.c
     displayName: 'clang-format -i src/wrapped/c/*.c'
+  - script: git diff --exit-code
+    displayName: 'check that C code is formatted. If this fails, run `clang-format` on modified C files and commit.'
+  - script: esy install
+    displayName: 'esy install'
   - script: git diff --exit-code
     displayName: 'check that `esy.lock` is up-to-date. If this fails, commit `esy.lock` changes and re-submit PR.'
   - script: esy @test
