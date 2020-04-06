@@ -34,6 +34,7 @@ let draw = canvas => {
   Path.lineTo(path, 590., 50.);
   Path.cubicTo(path, -490., 50., 1130., 430., 50., 430.);
   Path.lineTo(path, 590., 430.);
+  Path.addCircle(path, 100., 300., 100., Clockwise);
   Canvas.drawPath(canvas, path, stroke);
 
   Paint.setColor(fill, Color.makeArgb(0xCCl, 0x00l, 0xFFl, 0x00l));

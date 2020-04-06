@@ -259,6 +259,8 @@ module Path: {
 
   let make: unit => t;
 
+  let addCircle:
+    (t, float, float, float, SkiaWrapped.Path.pathDirection) => unit;
   let moveTo: (t, float, float) => unit;
   let lineTo: (t, float, float) => unit;
   let cubicTo: (t, float, float, float, float, float, float) => unit;

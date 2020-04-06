@@ -459,6 +459,9 @@ module RRect = {
 };
 
 module Path = {
+  type pathDirection = SkiaWrapped.Path.pathDirection;
+  let pathDirection = SkiaWrapped.Path.pathDirection;
+
   type t = SkiaWrapped.Path.t;
 
   let make = () => {
@@ -467,6 +470,7 @@ module Path = {
     path;
   };
 
+  let addCircle = SkiaWrapped.Path.addCircle;
   let moveTo = SkiaWrapped.Path.moveTo;
   let lineTo = SkiaWrapped.Path.lineTo;
   let cubicTo = SkiaWrapped.Path.cubicTo;
