@@ -483,6 +483,11 @@ module M = (F: FOREIGN) => {
     type pathDirection = SkiaTypes.Path.pathDirection;
     let pathDirection = SkiaTypes.Path.pathDirection;
 
+    let addRoundRect =
+      foreign(
+        "sk_path_add_rounded_rect",
+        t @-> Rect.t @-> float @-> float @-> pathDirection @-> returning(void),
+      );
     let addCircle =
       foreign(
         "sk_path_add_circle",
@@ -504,6 +509,7 @@ module M = (F: FOREIGN) => {
         @-> float
         @-> returning(void),
       );
+    let close = foreign("sk_path_close", t @-> returning(void));
   };
 
   module ColorSpace = {

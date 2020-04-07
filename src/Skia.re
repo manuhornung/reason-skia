@@ -471,9 +471,11 @@ module Path = {
   };
 
   let addCircle = SkiaWrapped.Path.addCircle;
+  let addRoundRect = SkiaWrapped.Path.addRoundRect;
   let moveTo = SkiaWrapped.Path.moveTo;
   let lineTo = SkiaWrapped.Path.lineTo;
   let cubicTo = SkiaWrapped.Path.cubicTo;
+  let close = SkiaWrapped.Path.close;
 };
 
 module ColorSpace = {
