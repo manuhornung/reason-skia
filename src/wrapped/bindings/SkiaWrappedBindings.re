@@ -478,7 +478,6 @@ module M = (F: FOREIGN) => {
 
     let allocate = foreign("sk_path_new", void @-> returning(t));
     let delete = foreign("sk_path_delete", t @-> returning(void));
-    float;
 
     type pathDirection = SkiaTypes.Path.pathDirection;
     let pathDirection = SkiaTypes.Path.pathDirection;
