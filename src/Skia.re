@@ -67,6 +67,10 @@ module FontMetrics = {
   let getBottom = SkiaWrapped.FontMetrics.getBottom;
 };
 
+module Hinting = {
+  type t = SkiaWrapped.Hinting.t;
+};
+
 module TextEncoding = {
   type t = SkiaWrapped.TextEncoding.t;
 };

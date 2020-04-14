@@ -26,6 +26,7 @@ module FontStyle: {
   let make: (int, int, slant) => t;
 };
 
+module Hinting: { type t = SkiaWrapped.Hinting.t; };
 module TextEncoding: {type t = SkiaWrapped.TextEncoding.t;};
 
 module Typeface: {
