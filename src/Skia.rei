@@ -26,7 +26,7 @@ module FontStyle: {
   let make: (int, int, slant) => t;
 };
 
-module Hinting: { type t = SkiaWrapped.Hinting.t; };
+module Hinting: {type t = SkiaWrapped.Hinting.t;};
 module TextEncoding: {type t = SkiaWrapped.TextEncoding.t;};
 
 module Typeface: {
@@ -112,7 +112,7 @@ module Paint: {
   let isAutohinted: t => bool;
 
   let setHinting: (t, Hinting.t) => unit;
-  let getHinting: (t) => Hinting.t;
+  let getHinting: t => Hinting.t;
 
   let setStyle: (t, style) => unit;
   let setStrokeWidth: (t, float) => unit;

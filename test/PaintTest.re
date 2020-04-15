@@ -15,7 +15,7 @@ describe("Paint", ({describe, _}) => {
     test("get / set hinting", ({expect}) => {
       let paint = Paint.make();
 
-      Paint.setTextEncoding(paint,Utf8);
+      Paint.setTextEncoding(paint, Utf8);
 
       Paint.setHinting(paint, FullHinting);
       expect.equal(paint |> Paint.getHinting, FullHinting);
@@ -23,5 +23,5 @@ describe("Paint", ({describe, _}) => {
       Paint.setHinting(paint, NoHinting);
       expect.equal(paint |> Paint.getHinting, NoHinting);
     });
-  });
+  })
 });

@@ -42,7 +42,7 @@ module M = (F: FOREIGN) => {
   module Hinting = {
     type t = SkiaTypes.Hinting.t;
     let t = SkiaTypes.Hinting.t;
-  }
+  };
 
   module Typeface = {
     type t = ptr(structure(SkiaTypes.Typeface.t));
@@ -145,19 +145,13 @@ module M = (F: FOREIGN) => {
       );
 
     let isAutohinted =
-      foreign(
-        "sk_paint_is_autohinted",
-        t @-> returning(bool)
-      );
-    
+      foreign("sk_paint_is_autohinted", t @-> returning(bool));
+
     let setAutohinted =
       foreign("sk_paint_set_autohinted", t @-> bool @-> returning(void));
 
     let isAutohinted =
-      foreign(
-        "sk_paint_is_autohinted",
-        t @-> returning(bool)
-      );
+      foreign("sk_paint_is_autohinted", t @-> returning(bool));
 
     let getHinting =
       foreign("sk_paint_get_hinting", t @-> returning(Hinting.t));

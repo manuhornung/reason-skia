@@ -18,11 +18,11 @@ module M = (T: TYPE) => {
 
   module Hinting = {
     type t =
-    | NoHinting
-    | SlightHinting
-    | NormalHinting
-    | FullHinting;
-    
+      | NoHinting
+      | SlightHinting
+      | NormalHinting
+      | FullHinting;
+
     let t =
       skiaCEnum(
         "sk_paint_hinting_t",
