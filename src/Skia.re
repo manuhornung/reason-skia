@@ -582,6 +582,7 @@ module Canvas = {
   let drawRRect = SkiaWrapped.Canvas.drawRRect;
   let drawOval = SkiaWrapped.Canvas.drawOval;
   let drawPath = SkiaWrapped.Canvas.drawPath;
+  let drawCircle = SkiaWrapped.Canvas.drawCircle;
 
   let drawText = (canvas, text, x, y, paint) => {
     SkiaWrapped.Canvas.drawText(
