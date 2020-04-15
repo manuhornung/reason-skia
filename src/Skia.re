@@ -459,9 +459,6 @@ module RRect = {
 };
 
 module Path = {
-  type pathDirection = SkiaWrapped.Path.pathDirection;
-  let pathDirection = SkiaWrapped.Path.pathDirection;
-
   type t = SkiaWrapped.Path.t;
 
   let make = () => {
