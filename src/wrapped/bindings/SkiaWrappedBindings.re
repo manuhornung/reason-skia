@@ -163,7 +163,7 @@ module M = (F: FOREIGN) => {
       foreign("sk_paint_get_hinting", t @-> returning(Hinting.t));
 
     let setHinting =
-      foreign("sk_paint_set_hinting", t @-> Hinting.t -> returning(void)));
+      foreign("sk_paint_set_hinting", t @-> Hinting.t @-> returning(void));
 
     let measureText =
       foreign(
