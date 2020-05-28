@@ -2,6 +2,7 @@
     (names TestSdl)
     (package skia-example-sdl)
     (public_names TestSdl)
+    (modes native byte)
     (libraries
         skia
         sdl2
