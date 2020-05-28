@@ -43,7 +43,7 @@ CAMLprim value reason_skia_paint_set_alphaf_byte(value vPaint, value vAlpha) {
 
 CAMLprim value reason_skia_paint_set_color_byte(value vPaint, value vColor) {
   reason_skia_paint_set_color(vPaint, Int32_val(vColor));
-  
+
   return Val_unit;
 }
 
