@@ -41,7 +41,7 @@ CAMLprim value reason_skia_paint_set_alphaf_byte(value vPaint, value vAlpha) {
   return Val_unit;
 }
 
-CAMLprim value reason_skia_matrix_set_color_byte(value vPaint, value vColor) {
+CAMLprim value reason_skia_paint_set_color_byte(value vPaint, value vColor) {
   return reason_skia_paint_set_color(vPaint, Int_val(vColor));
 }
 
@@ -187,7 +187,7 @@ CAMLprim value reason_skia_rect_set(value vRect, double left, double top,
   return Val_unit;
 }
 
-CAMLprim value reasion_skia_rect_set_byte(value vRect, value vLeft, value vTop,
+CAMLprim value reason_skia_rect_set_byte(value vRect, value vLeft, value vTop,
                                           value vRight, value vBottom) {
   return reason_skia_rect_set(vRect, Double_val(vLeft), Double_val(vTop),
                               Double_val(vRight), Double_val(vBottom));
