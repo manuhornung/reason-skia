@@ -188,7 +188,7 @@ CAMLprim value reason_skia_rect_set(value vRect, double left, double top,
 }
 
 CAMLprim value reason_skia_rect_set_byte(value vRect, value vLeft, value vTop,
-                                          value vRight, value vBottom) {
+                                         value vRight, value vBottom) {
   return reason_skia_rect_set(vRect, Double_val(vLeft), Double_val(vTop),
                               Double_val(vRight), Double_val(vBottom));
 }
