@@ -105,26 +105,19 @@ let run = () => {
 
   let skiaContext = createSkiaGraphicsContext(primaryWindow);
   let skiaSurface = createSkiaSurface(primaryWindow, skiaContext);
-  print_endline("Getting canvas...")
   let canvas = Skia.Surface.getCanvas(skiaSurface);
-  print_endline("Got canvas")
 
   let render = (window, context, surface) => {
     //print_endline("-- Render: start");
     ignore(context);
     ignore(surface);
 
-    print_endline("Making color...");
     let color = Skia.Color.makeArgb(0xFFl, 0xFFl, 0x00l, 0x00l);
-    print_endline("Color made: " ++ Int32.to_string(color));
 
-
-    print_endline("Clearing canvas...")
     Skia.Canvas.clear(
       canvas,
       color
     );
-    print_endline("Canvas cleared.")
 
     let paint = Skia.Paint.make();
     Skia.Paint.setColor(
