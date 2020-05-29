@@ -2,7 +2,7 @@
   "source": "./package.json",
   "scripts": {
     "run": "esy '@example-sdl' x TestSdl",
-    "run-bytecode": "dune exec example-sdl/TestSdl.bc"
+    "run-bytecode": "esy b dune exec example-sdl/TestSdl.bc"
   },
   "override": {
       "build": ["dune build -p skia,skia-example-sdl -j4"],
