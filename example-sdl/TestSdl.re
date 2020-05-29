@@ -114,10 +114,7 @@ let run = () => {
 
     let color = Skia.Color.makeArgb(0xFFl, 0xFFl, 0x00l, 0x00l);
 
-    Skia.Canvas.clear(
-      canvas,
-      color
-    );
+    Skia.Canvas.clear(canvas, color);
 
     let paint = Skia.Paint.make();
     Skia.Paint.setColor(
